@@ -14,13 +14,15 @@ class CreateProjetsTable extends Migration
     public function up()
     {
         Schema::create('projets', function (Blueprint $table) {
-            $table->bigIncrements('id_projet');
+            $table->increments('id');
             $table->string('titre_projet');
+            $table->string('type_projet');
             $table->text('desc_projet');
-            $table->date('date_butor_projet');
             $table->date('date_debut');
-            // $table->float('budget_min_projet');
-            // $table->float('budget_max_projet');
+            $table->date('date_butoir_projet');
+            $table->binary('URL_PJ');
+            $table->float('Budget_min_projet');
+            $table->float('Budget_max_projet');
             $table->timestamps();
         });
     }

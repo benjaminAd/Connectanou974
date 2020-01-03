@@ -7,11 +7,11 @@
 @endsection
             
 @section('body')
-
+@include('navbar')
     <div class="d-flex justify-content-center align-items-center divCon mt-5">
         <div class="border border-light p-5 divConnect needs-validation" >
             <img class="img-fluid rounded-circle mx-auto d-block" src="./img/fav_png150vct.png" alt="Logo"/>
-            <p class="h1 mb-4 text-center">Rechercher une annonce</p>
+            <p class="h1 mb-4 text-center">Recherchez des Projets</p>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="">
@@ -46,11 +46,11 @@
             </form>
             </div>
         </div>
-    
+    </div>
         {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
-   
+   @include('footer')
 @endsection
-@section('extra-js')
+@section('script')
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function search(event){
