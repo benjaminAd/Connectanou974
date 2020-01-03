@@ -39,12 +39,7 @@
                     <option value=cinq>5. Référencement web</option>
                     <option value=six>6. Système réseaux, sécurité</option>
                     <option value=sept>7. Marketing et communication</option>
-                    <option value=huit>8. Autres...</option>
-                     @error('type_projet')
-                        <div class="invalid-feedback">
-                            Ce champ est requis !
-                        </div>
-                    @enderror 
+
                 </select>   
                 </div>
                 {{-- Champs pour la description du projet --}}
@@ -97,7 +92,7 @@
               <div class="alert alert-danger">{{ $errors->first('g-recaptcha-response') }}</div>
         @endif
       </div>
-                <button type="submit" class="btn btn-primary">Soumettre mon annonce</button>
+                <button type="submit" class="btn btn-primary">Soumettre votre projet</button>
             </form>
             </div>
         </div> 

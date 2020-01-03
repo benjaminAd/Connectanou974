@@ -16,12 +16,12 @@
                 <a href="<?php echo e(url('a-propos')); ?>" class="nav-link" title="Qui sommes-nous?" style="color:#1E4F87;">L'association</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" title="Qu'est-ce qu'un réalisateur?" data-placement="bottom" href="#" style="color:#1E4F87;">
-                        Realisateur
+                <a class="nav-link" title="Qu'est-ce qu'un réalisateur?" data-placement="bottom" href="<?php echo e(url('Recherche')); ?>" style="color:#1E4F87;">
+                        Recherche de Projets
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" title="Projets" data-placement="bottom" href="#" style="color:#1E4F87;">
+                <a class="nav-link" title="Projets" data-placement="bottom" href="<?php echo e(url('annonce')); ?>" style="color:#1E4F87;">
                         Projets
                     </a>
                 </li>

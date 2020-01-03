@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Depot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\depot_projet;
+use App\Http\Requests\projets;
 use App\Projet;
 
 class DepotController extends Controller
@@ -21,7 +21,7 @@ class DepotController extends Controller
         // on recherche dans la base de données  dans la table "depot" les annonces et les classées par ordre de création
         // et on stock le resultat de la recherche dans une variable
 
-        $RechercheAnnonce = DB::table('Projets')->orderBy('created_at')->paginate(3);
+        $RechercheAnnonce = DB::table('projets')->orderBy('created_at')->paginate(3);
 
         return view('Recherche', compact('RechercheAnnonce'));
     }
@@ -54,7 +54,7 @@ class DepotController extends Controller
 
         // permet de créer un nouveau dépôt de projet grâce App\depot déjà importée dans le controller
 
-        $depot_projet = new Depot();
+        $depot_projet = new Projet();
 
         // dans chaque cas $depot_projet va correspondre à un champs de la BDD auquel on lui associe un champs dans le formulaire 
         $depot_projet->titre_projet = $depot;
@@ -79,7 +79,7 @@ class DepotController extends Controller
     {
         $words = $request->words;
 
-        $depot_projets = DB::table('Projets')->where('titre_projet', 'LIKE', "%$words%")
+        $depot_projets = DB::table('projets')->where('titre_projet', 'LIKE', "%$words%")
             ->orwhere('desc_projet', 'LIKE', "%$words%")
             ->orderBy('created_at', 'DESC')
             ->get();
