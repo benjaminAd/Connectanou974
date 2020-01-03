@@ -25,6 +25,11 @@
                         Projets
                     </a>
                 </li>
+                 <li class="nav-item">
+                 <a class="nav-link" title="Projets" data-placement="bottom" href="{{url('contact')}}" style="color:#1E4F87;">
+                        Contact
+                    </a>
+                </li>
                 <div class="btn-group">
                 <a  class="btn btn-primary " title="Se Connecter"  href="{{route('connect')}}" aria-haspopup="true" aria-expanded="false" style="line-height:25px;">
                         Connexion

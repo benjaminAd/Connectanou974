@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/style_Contact.css"/>
 @endsection
 @section('body')
-
+@include('navbar')
     <div class="d-flex justify-content-center align-items-center divCon mt-5">
         <form class="border border-light p-5 divConnect needs-validation" action="{{url('contact')}}"  method="POST">
             {{csrf_field()}}
@@ -56,12 +56,12 @@
             @if ($errors->has('g-recaptcha-response'))
                  <div class="alert alert-danger">{{ $errors->first('g-recaptcha-response') }}</div>
             @endif
-            </div>
-            <button type="submit" class="btn btn-info btn-block my-4 " id="bouton">Envoyer le message</button>
+                   <button type="submit" class="btn btn-info btn-block my-4 " id="bouton">Envoyer le message</button>
         <div>Vous pouvez aussi faire un don à l'association <a href="{{url('donAsso')}}">ici</a></div>
         </form>
     </div>
-
+            </div>
+@include('footer')
 @endsection
 @section('script')
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

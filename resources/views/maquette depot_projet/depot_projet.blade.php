@@ -7,7 +7,7 @@
 @endsection
 
 @section('body')
-
+@include('navbar')
     <div class="d-flex justify-content-center align-items-center divCon mt-5">
         <form class="border border-light p-5 divConnect needs-validation" action="{{ route('annonce.store') }}"  method="POST">
             {{-- token csrf --}}
@@ -16,7 +16,7 @@
             {{csrf_field()}}
 
             <img class="img-fluid rounded-circle mx-auto d-block" src="./img/fav_png150vct.png" alt="Logo"/>
-            <p class="h1 mb-4 text-center">Déposer un projet</p>
+            <p class="h1 mb-4 text-center">Déposez un projet</p>
         <div class="container">
             
             <hr>
@@ -26,11 +26,6 @@
                 <div class="form-group">
                     <label for="titre_projet" style="font-weight: bold;">Titre </label>
                     <input type="text" class="form-control  @error('titre_projet') is-invalid @enderror"   id="titre_projet" aria-describedby="titre_projet" name="titre_projet" placeholder="Le nom de votre projet" >
-                    @error('titre_projet')
-                        <div class="invalid-feedback">
-                            Ce champ est requis !
-                        </div>
-                    @enderror   
                 </div>
                 {{-- Champs pour le type de projet --}}
                 <div class="form-group">
@@ -56,12 +51,6 @@
                 <div class="form-group">
                     <label for="desc_projet" style="font-weight: bold;">Description </label>
                     <textarea name="desc_projet" class="form-control @error('desc_projet')is-invalid @enderror " id="desc_projet" cols="30" rows="10"   placeholder="Décrivez-nous en détail votre projet, les objectifs?, les attentes?, problémes?" ></textarea>
-                    
-                    @error('desc_projet')
-                        <div class="invalid-feedback">
-                            Ce champ est requis !
-                        </div>
-                    @enderror 
                    
                 </div>
                 {{-- Champs pour la date de debut --}}
@@ -69,28 +58,14 @@
                     <div class="col-sm-6">
                         <div class="form-group ">
                             <label for="date_debut" style="font-weight: bold;">Date début </label>
-                            <input type="date" class="form-control @error('date_debut')is-invalid @enderror"    id="date_debut" aria-describedby="date_debut" name="date_debut" placeholder="Quel est la date de début pour votre projet?" >
-                            
-                            @error('date_debut')
-                                <div class="invalid-feedback">
-                                    Ce champ est requis !
-                                </div>
-                            @enderror 
-                            
+                            <input type="date" class="form-control"    id="date_debut" aria-describedby="date_debut" name="date_debut" placeholder="Quel est la date de début pour votre projet?" >                           
                         </div>
                     </div>
                     {{-- Champs pour la date de fin --}}
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="date_butoir_projet" style="font-weight: bold;">Date butoir </label>
-                            <input type="date" class="form-control @error('date_butoir_projet')is-invalid @enderror"   id="date_butoir_projet" aria-describedby="date_butoir_projet" name="date_butoir_projet" placeholder="Quel est la date de fin pour votre projet?" >
-                           
-                            @error('date_butoir_projet')
-                                <div class="invalid-feedback">
-                                    Ce champ est requis !
-                                </div>
-                            @enderror 
-                         
+                            <input type="date" class="form-control"   id="date_butoir_projet" aria-describedby="date_butoir_projet" name="date_butoir_projet" placeholder="Quel est la date de fin pour votre projet?" >                        
                         </div>
                     </div>
                 </div>
@@ -105,24 +80,14 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Budget_min_projet" style="font-weight: bold;">Budget minimum </label>
-                            <input type="number" class="form-control @error('Budget_min_projet')is-invalid @enderror" id="Budget_min_projet" aria-describedby="Budget_min_projet" name="Budget_min_projet" placeholder="Exemple : 1"  >
-                            @error('Budget_min_projet')
-                                <div class="invalid-feedback">
-                                    Ce champ est requis !
-                                </div>
-                            @enderror 
+                            <input type="number" class="form-control" id="Budget_min_projet" aria-describedby="Budget_min_projet" name="Budget_min_projet" placeholder="Exemple : 1"  >
                         </div> 
                     </div>
                     {{-- Champs pour le budget maximum --}}
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Budget_max_projet" style="font-weight: bold;">Budget maximum </label>
-                            <input type="number" class="form-control @error('Budget_max_projet')is-invalid @enderror" id="Budget_max_projet" aria-describedby="Budget_max_projet" name="Budget_max_projet"placeholder="Exemple : 200"  >
-                            @error('Budget_max_projet')
-                                <div class="invalid-feedback">
-                                    Ce champ est requis !
-                                </div>
-                            @enderror 
+                            <input type="number" class="form-control" id="Budget_max_projet" aria-describedby="Budget_max_projet" name="Budget_max_projet"placeholder="Exemple : 200"  >
                         </div>
                     </div>
                 </div>
@@ -137,7 +102,7 @@
             </div>
         </div> 
         {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
-   
+   @include('footer')
 @endsection
 @section('script')
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
