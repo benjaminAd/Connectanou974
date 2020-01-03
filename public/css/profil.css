@@ -1,0 +1,45 @@
+#profil-pic{
+    width:600px;
+    height:150px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    
+    
+}
+
+
+#favicon{
+    width:2px;
+    height:2px;
+    
+}
+.file-upload {
+    display: none;
+    
+}
+#btcam{
+  z-index:2;
+  top
+  
+}
+
+#p-image {
+    
+    top: 100px;
+    right: 30px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  #p-image:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  .upload-button {
+    font-size: 1.2em;
+  }
+  
+  .upload-button:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
+  }
+
