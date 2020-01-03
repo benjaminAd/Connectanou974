@@ -16,7 +16,7 @@
             {{csrf_field()}}
 
             <img class="img-fluid rounded-circle mx-auto d-block" src="./img/fav_png150vct.png" alt="Logo"/>
-            <p class="h1 mb-4 text-center">Déposez un projet</p>
+            <p class="h1 mb-4 text-center">Déposez votre projet</p>
         <div class="container">
             
             <hr>
@@ -24,13 +24,13 @@
               {{-- Champs pour le titre --}}
               {{-- @error('pseudo')is-invalid @enderror permet de mettre un visuel sur une erreur et avec le  class="invalid-feedback" nous permet de mettre un message personalisé--}}
                 <div class="form-group">
-                    <label for="titre_projet" style="font-weight: bold;">Titre </label>
-                    <input type="text" class="form-control  @error('titre_projet') is-invalid @enderror"   id="titre_projet" aria-describedby="titre_projet" name="titre_projet" placeholder="Le nom de votre projet" >
+                    <label for="titre_projet" style="font-weight: bold;">Titre du Projet</label>
+                    <input type="text" class="form-control"   id="titre_projet" aria-describedby="titre_projet" name="titre_projet" placeholder="Le nom de votre projet" >
                 </div>
                 {{-- Champs pour le type de projet --}}
                 <div class="form-group">
-                <label style="font-weight: bold;">Type de projet?</label>
-                <select class="form-control @error('type_projet')is-invalid @enderror" name="type_projet"  >
+                <label style="font-weight: bold;">Type de projet</label>
+                <select class="form-control" name="type_projet"  >
                     <option value="0">Sélectionner un type de projet</option>
                     <option value=un>1. Développement web</option>
                     <option value=deux>2. Développement mobile</option>
@@ -50,7 +50,7 @@
                 {{-- Champs pour la description du projet --}}
                 <div class="form-group">
                     <label for="desc_projet" style="font-weight: bold;">Description </label>
-                    <textarea name="desc_projet" class="form-control @error('desc_projet')is-invalid @enderror " id="desc_projet" cols="30" rows="10"   placeholder="Décrivez-nous en détail votre projet, les objectifs?, les attentes?, problémes?" ></textarea>
+                    <textarea name="desc_projet" class="form-control" id="desc_projet" cols="30" rows="10"   placeholder="Décrivez-nous en détail votre projet, les objectifs, les attentes, problèmes" ></textarea>
                    
                 </div>
                 {{-- Champs pour la date de debut --}}
@@ -106,4 +106,8 @@
 @endsection
 @section('script')
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+      var d = new Date();
+    document.getElementById("date_debut").valueAsDate=d;
+  </script>
 @endsection

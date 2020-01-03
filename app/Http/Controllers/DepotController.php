@@ -6,21 +6,22 @@ use App\Depot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\depot_projet;
+use App\Projet;
 
 class DepotController extends Controller
 
 {
-     public function __construct()
+    public function __construct()
     {
-       // $this->middleware('auth')->except(['index', 'show']);
+        // $this->middleware('auth')->except(['index', 'show']);
     }
-    
+
     public function index()
     {
         // on recherche dans la base de données  dans la table "depot" les annonces et les classées par ordre de création
         // et on stock le resultat de la recherche dans une variable
 
-        $RechercheAnnonce = DB::table('depots')->orderBy('created_at')->paginate(3);
+        $RechercheAnnonce = DB::table('Projets')->orderBy('created_at')->paginate(3);
 
         return view('Recherche', compact('RechercheAnnonce'));
     }
@@ -32,14 +33,14 @@ class DepotController extends Controller
     public function store(Request $request)
     {
         // régles de validation pour le formulaire
-        $this->validate($request,[
-            'titre_projet'=>'required',
-            'type_projet'=>'required',
-            'desc_projet'=>'required',
-            'date_debut'=>'required',
-            'date_butoir_projet'=>'required',
-            'Budget_min_projet'=>'required',
-            'Budget_max_projet'=>'required'
+        $this->validate($request, [
+            'titre_projet' => 'required',
+            'type_projet' => 'required',
+            'desc_projet' => 'required',
+            'date_debut' => 'required',
+            'date_butoir_projet' => 'required',
+            'Budget_min_projet' => 'required',
+            'Budget_max_projet' => 'required'
         ]);
         // on utilise la request http et on stock nos données dans une variable
         $depot = $request->get('titre_projet');
@@ -78,7 +79,7 @@ class DepotController extends Controller
     {
         $words = $request->words;
 
-        $depot_projets = DB::table(depots)->where('titre_projet', 'LIKE', "%$words%")
+        $depot_projets = DB::table('Projets')->where('titre_projet', 'LIKE', "%$words%")
             ->orwhere('desc_projet', 'LIKE', "%$words%")
             ->orderBy('created_at', 'DESC')
             ->get();
