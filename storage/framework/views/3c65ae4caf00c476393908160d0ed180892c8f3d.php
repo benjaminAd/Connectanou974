@@ -25,14 +25,15 @@
                         </div>
                         <button type="submit" class="btn btn-danger mb-5" style="display: block; margin : auto;">Rechercher</button>
                     </form>
+                    <p>Si vous êtes intéréssé par un projet, contactez l'équipe de Connectanou.</p>
                     <?php $__currentLoopData = $RechercheAnnonce; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Recherche): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="card mb-2 mt-3 " style="width: 36rem;">
                             
                             <div class="card-body">
                                 
                                 <h5 class="card-title"><?php echo e($Recherche->titre_projet); ?></h5>
-                                <p class="card-text"><?php echo e($Recherche->desc_projet); ?></p>
-                                <a href="#" class="btn btn-primary">Voir l'annonce</a>
+                                <p class="card-text"><?php echo e($Recherche->desc_projet); ?><br/><?php echo e($Recherche->date_butoir_projet); ?></p>
+                                
                             </div>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

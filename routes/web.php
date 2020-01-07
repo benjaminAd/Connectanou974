@@ -11,6 +11,9 @@
 |
 */
 //Page d'Accueil
+
+//use Illuminate\Routing\Route;
+
 Route::get('/', function () {
     return view('Accueil');
 });
@@ -39,6 +42,10 @@ Route::post('login', 'LoginController@traitement');
 //Route Mot de PAsse oublié
 Route::get('Forgot', function () {
     return view('Maquette MdpForgot.mdpForgot');
+});
+//Route pour la page de Profil
+Route::get('Profil', function () {
+    return view('Maquette Profile.profil');
 });
 //Page Mentions Légales
 Route::get('mentionLegal', function () {

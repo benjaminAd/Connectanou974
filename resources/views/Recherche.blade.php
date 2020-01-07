@@ -25,14 +25,15 @@
                         </div>
                         <button type="submit" class="btn btn-danger mb-5" style="display: block; margin : auto;">Rechercher</button>
                     </form>
+                    <p>Si vous êtes intéréssé par un projet, contactez l'équipe de Connectanou.</p>
                     @foreach ($RechercheAnnonce as $Recherche )
                         <div class="card mb-2 mt-3 " style="width: 36rem;">
                             {{-- <img src="..." class="card-img-top" alt="..."> --}}
                             <div class="card-body">
                                 {{-- On récupere le titre  --}}
                                 <h5 class="card-title">{{$Recherche->titre_projet}}</h5>
-                                <p class="card-text">{{$Recherche->desc_projet}}</p>
-                                <a href="#" class="btn btn-primary">Voir l'annonce</a>
+                                <p class="card-text">{{$Recherche->desc_projet}}<br/>{{$Recherche->date_butoir_projet}}</p>
+                                {{-- <a href="#" class="btn btn-primary">Plus de Détails</a> --}}
                             </div>
                         </div>
                     @endforeach
