@@ -129,9 +129,6 @@
 @endsection
 @section('script')
       <!--   Core JS Files   -->
-  {{-- <script src="js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="js/core/popper.min.js" type="text/javascript"></script>
-  <script src="js/core/bootstrap.min.js" type="text/javascript"></script> --}}
   <script src="js/profil.js" type="text/javascript"></script>
   <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
   <script src="js/plugins/bootstrap-switch.js"></script>
