@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    <title>Inscription De Réalisateur de Projet</title>
+    <title>Inscription Réalisateur Projets</title>
 @endsection
 @section('link')
     <link rel="stylesheet" href="./css/style_ReaProjet.css" />
@@ -34,7 +34,7 @@
          @if ($errors->has('naissance')) <div class="alert alert-danger">{{ $errors->first('naissance') }}</div> @endif
       </div>
        <div class="form-group">
-                <label for="tel">Numéro de Téléphone<span id="important">*</span></label>
+                <label for="tel">Numéro de Téléphone</label>
                 <input type="tel" name="tel" id="telephone" class="form-control" placeholder="ex : 0692 xx xx xx" value="{{old('tel')}}"/>
                 @if ($errors->has('tel')) <div class="alert alert-danger">{{ $errors->first('tel') }}</div> @endif
             </div>
@@ -72,7 +72,7 @@
         </select>
       </div>
       <div class="form-group" id="FormationAjout">
-        <label>Nom de votre Formation<span id="important">*</span></label>
+        <label>Nom de votre Formation</label>
         <input type="text" class="form-control" placeholder="ex : Licence Informatique" value="{{{old("NomFormation")}}}" name="NomFormation">
       </div>
       <div class="form-group">
@@ -94,7 +94,7 @@
         </select>
       </div>
       <div class="form-group" id="Formations">
-        <label>Diplome<span id="important">*</span></label>
+        <label>Diplome</label>
         <select name="Diplome" id="Diplome" class="custom-select">
           <option value="" selected>Diplome</option>
           @foreach ($Diplomes as $Diplome)
@@ -109,12 +109,12 @@
       </div>
       <!-- Email -->
       <div class="form-group">
-        <label for="mail">Adresse E-Mail<span id="important">*</span></label>
+        <label for="mail">Adresse eMail<span id="important">*</span></label>
         <input type="email" name="mail" id="mail" class="form-control" placeholder="ex : MarcPayet97@gmail.com" value="{{{old("mail")}}}"  />
          @if ($errors->has('mail')) <div class="alert alert-danger">{{ $errors->first('mail') }}</div> @endif
       </div>
       <div class="form-group">
-        <label for="login">Pseudo<span id="important">*</span></label>
+        <label for="login">Pseudo</label>
         <input type="text" name="login" class="form-control" id="login" placeholder="ex : BoulangeriePayet974" value="{{{old("login")}}}" />
          @if ($errors->has('login')) <div class="alert alert-danger">{{ $errors->first('login') }}</div> @endif
       </div>
@@ -130,12 +130,12 @@
          @if ($errors->has('password2')) <div class="alert alert-danger">{{ $errors->first('password2') }}</div> @endif
       </div>
       <div class="form-group">
-        <label for="linkedin">Lien vers votre page Linkedin<span id="important">*</span></label>
+        <label for="linkedin">Lien vers votre page Linkedin</label>
         <input type="url" id="linkedin" name="linkedin" class="form-control" placeholder="ex :www.linkedin.com/in/payet-marc-198755421" value="{{{old("linkedin")}}}" />
          @if ($errors->has('linkedin')) <div class="alert alert-danger">{{ $errors->first('linkedin') }}</div> @endif
       </div>
       <div class="form-group files">
-        <!-- <label for="CV">Importez votre CV<span id="important">*</span></label>
+        <!-- <label for="CV">Importez votre CV</label>
           <div class="input-group">
             <div class="custom-file">
               <input
@@ -154,7 +154,7 @@
               Importez un CV.
             </div>
           </div> -->
-        <label>Importez votre CV<span id="important">*</span></label>
+        <label>Importez votre CV</label>
         <input type="file" class="form-control" name="select_file" >
          @if ($errors->has('select_file')) <div class="alert alert-danger">{{ $errors->first('select_file') }}</div> @endif
       </div>
