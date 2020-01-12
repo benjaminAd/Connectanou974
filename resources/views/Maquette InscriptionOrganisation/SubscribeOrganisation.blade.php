@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    <title>Inscription d'une Organisation</title>
+    <title>Inscription Organisation - entreprise - association</title>
 @endsection
 @section('link')
     <link rel="stylesheet" href="./css/style_SubOrg.css"/>
@@ -22,8 +22,8 @@
             <input type="number" name="siret" class="form-control" id="siret" placeholder="ex : 36252187900034" data-toggle="tooltip" value="{{{old("siret")}}}" data-placement="right" title="Évitez les espaces dans le Siret"/>
                  @if ($errors->has('siret')) <div class="alert alert-danger">{{ $errors->first('siret') }}</div> @endif
             </div>
+            <label>Raison sociale<span id="important">*</span></label>
             <div class="form-group">
-                <label>Raison sociale<span id="important">*</span></label>
                 <div class="form-group">
                 <div class="form-inline" id="Organisation">
                     <select name="typeOrganisation" class="custom-select col-3" id="typeOrganisation">
@@ -34,7 +34,9 @@
                             <option value="{{$type->Id}}">{{$type->TypeOrganisation}}</option>
                         @endforeach
                     </select>
+                    
                     &nbsp;&nbsp;&nbsp;
+                    
                     <input type="text" name="RaisonSociale" class="form-control col" id="label"
                         placeholder="ex : Connectanou" value="{{old('RaisonSociale')}}"
                            />
@@ -43,19 +45,19 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Téléphone<span id="important">*</span></label>
+                <label>Téléphone</label>
             <input type="tel" name="telephone" id="telephone" class="form-control" placeholder="ex : 0262xxxxxx" value="{{old('telephone')}}"
                        />
              @if ($errors->has('telephone')) <div class="alert alert-danger">{{ $errors->first('telephone') }}</div> @endif
             </div>
             <div class="form-group">
-                <label>Lien vers le site Internet de l'Organisation<span id="important">*</span></label>
+                <label>Lien vers le site Internet de l'Organisation</label>
             <input type="url" name="site" id="site" class="form-control" placeholder="ex : connectanou.re" value="{{old('site')}}"
                        />
             @if ($errors->has('site')) <div class="alert alert-danger">{{ $errors->first('site') }}</div> @endif
             </div>
             <div class="form-group">
-                <label>Adresse de l'Organisation<span id="important">*</span></label>
+                <label>Adresse de l'Organisation</label>
                 <input type="text" name="adresse" id="adresse" class="form-control"
             placeholder="ex : 70 Avenue Georges Brassens" value="{{old('adresse')}}"
                        />
@@ -88,7 +90,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Nombre de personnes</label>
+                <label>Nombre de personnes dans l'organisation</label>
                 <input type="number" name="salariés" id="salarié" class="form-control" placeholder="ex : 60" />
                  @if ($errors->has('salariés')) <div class="alert alert-danger">{{ $errors->first('salariés') }}</div> @endif
             </div>
