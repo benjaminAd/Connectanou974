@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    <title>Inscription De Porteur de Projet</title>
+    <title>Inscription Porteur de Projets</title>
 @endsection
 @section('link')
     <link rel="stylesheet" href="./css/style_PortProjet.css"/>
@@ -78,7 +78,7 @@
                 @endif
             </div>
             <div class="form-group" id="post">
-                <label for="Poste">Poste<span class="importSelect" id="important">*</span></label>
+                <label for="Poste">Poste</label>
                 <input type="text" class="form-control" name="Poste" id="posteEntreprise"
                        placeholder="ex : Gérant" value="{{old('Poste')}}"/>
                 @if ($errors->has('Poste')) <div class="alert alert-danger">{{ $errors->first('Poste') }}</div> @endif
@@ -90,14 +90,14 @@
             </div>
             <!-- Email -->
             <div class="form-group">
-                <label for="mail">Adresse E-Mail<span id="important">*</span></label>
+                <label for="mail">Adresse eMail<span id="important">*</span></label>
                 <input type="email" id="mail" name="mail" class="form-control" placeholder="ex : HoareauBoris@gmail.com" value="{{old('mail')}}"
                        />
                 @if ($errors->has('mail')) <div class="alert alert-danger">{{ $errors->first('mail') }}</div> @endif
             </div>
 
             <div class="form-group">
-                <label for="pseudo">Pseudo<span id="important">*</span></label>
+                <label for="pseudo">Pseudo</label>
                 <input type="text" name="pseudo" id="login" class="form-control" placeholder="ex : ConnectanouGérant974" value="{{old('pseudo')}}"
                        />
                 @if ($errors->has('pseudo')) <div class="alert alert-danger">{{ $errors->first('pseudo') }}</div> @endif
