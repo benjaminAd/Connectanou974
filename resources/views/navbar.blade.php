@@ -13,25 +13,26 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <a href="{{{url('a-propos')}}}" class="nav-link" title="Qui sommes-nous?" style="color:#1E4F87;">L'association</a>
+                    <a href="https://demos.creative-tim.com/paper-kit-2/docs/1.0/getting-started/introduction.html" class="nav-link" style="color:#1E4F87;">L'association</a>
                 </li>
+
                 <li class="nav-item">
-                <a class="nav-link" title="Qu'est-ce qu'un réalisateur?" data-placement="bottom" href="{{{url('Recherche')}}}" style="color:#1E4F87;">
-                        Recherche de Projets
+                    <a class="nav-link" title="Réalisateur de projets" data-placement="bottom" href="#" style="color:#1E4F87;">
+                        Realisateurs de Projets
                     </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" title="Projets" data-placement="bottom" href="{{{url('annonce')}}}" style="color:#1E4F87;">
+                    <a class="nav-link" title="Porteurs de Projets" data-placement="bottom" href="#" style="color:#1E4F87;">
+                        Porteurs de Projets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" title="Projets" data-placement="bottom" href="#" style="color:#1E4F87;">
                         Projets
                     </a>
                 </li>
-                 <li class="nav-item">
-                 <a class="nav-link" title="Projets" data-placement="bottom" href="{{url('contact')}}" style="color:#1E4F87;">
-                        Contact
-                    </a>
-                </li>
                 <div class="btn-group">
-                <a  class="btn btn-primary " title="Se Connecter"  href="{{route('connect')}}" aria-haspopup="true" aria-expanded="false" style="line-height:25px;">
+                <a  class="btn btn-primary " title="Se Connecter"  href="{{url('login')}}" aria-haspopup="true" aria-expanded="false" style="line-height:25px;">
                         Connexion
                 </a>
                 </div>

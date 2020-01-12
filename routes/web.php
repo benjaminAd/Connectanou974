@@ -35,7 +35,12 @@ Route::resource('Organisation', 'OrganisationController');
 //Inscription du Réalisateur de prjets
 Route::get('SubscribeReaProjet', 'ReaProjetController@index')->name('SubscribeRea');
 Route::resource('Realisateur', 'ReaProjetController');
+//Route page plan du site
+Route::get('/plan',function(){
 
+    return view('Site_map');
+
+});
 //Route pour la Connexion en Post et Get
 Route::get('login', 'LoginController@formulaire')->name('connect');
 Route::post('login', 'LoginController@traitement');
