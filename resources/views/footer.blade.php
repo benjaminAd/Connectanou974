@@ -5,7 +5,7 @@
           <nav class="footer-nav">
             <ul>
               <li>
-                <a href="{{{url('Contact')}}}" target="_blank">Contact</a>
+                <a href="{{{url('contact')}}}" target="_blank">Contact</a>
               </li>
               <li>
                 <a href="{{url('/plan')}}">Plan du site</a>
