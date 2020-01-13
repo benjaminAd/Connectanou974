@@ -13,22 +13,22 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="https://demos.creative-tim.com/paper-kit-2/docs/1.0/getting-started/introduction.html" class="nav-link" style="color:#1E4F87;">L'association</a>
+                    <a href="{{{url('a-propos')}}}" class="nav-link" style="color:#1E4F87;">L'association</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" title="Réalisateur de projets" data-placement="bottom" href="#" style="color:#1E4F87;">
-                        Realisateurs de Projets
+                    <a class="nav-link" title="Recherche de projets" data-placement="bottom" href="{{{route('RechercheAnnonce')}}}" style="color:#1E4F87;">
+                        Recherche de projets
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" title="Porteurs de Projets" data-placement="bottom" href="#" style="color:#1E4F87;">
-                        Porteurs de Projets
+                    <a class="nav-link" title="Depot de projet" data-placement="bottom" href="{{{route('annonce.create')}}}" style="color:#1E4F87;">
+                        Dépot de Projet
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" title="Projets" data-placement="bottom" href="#" style="color:#1E4F87;">
-                        Projets
+                    <a class="nav-link" title="Equipe" data-placement="bottom" href="{{{route('equipe')}}}" style="color:#1E4F87;">
+                        Equipe
                     </a>
                 </li>
                 <div class="btn-group">
