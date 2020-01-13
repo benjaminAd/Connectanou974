@@ -45,11 +45,11 @@
     <br>
     <li  style="list-style-type: none;"><a class="btn btn-warning" href="{{{route('landingPor')}}}">Réalisateurs de projet - landing page</a></li>
     <br>
-    <li  style="list-style-type: none;"><a class="btn btn-secondary"  href="{{{route('Recherche')}}}">Recherche de projets</a></li>
+    <li  style="list-style-type: none;"><a class="btn btn-secondary"  href="{{{route('RechercheAnnonce')}}}">Recherche de projets</a></li>
     <br>
-    <li  style="list-style-type: none;"><a  class="btn btn-primary" href="{{{route('annonce')}}}" >Dépot de projet</a></li>
+    <li  style="list-style-type: none;"><a  class="btn btn-primary" href="{{{route('annonce.create')}}}" >Dépot de projet</a></li>
     <br>
-    <li  style="list-style-type: none;"><a class="btn btn-success" href="{{{route('topics')}}}">Forum</a></li>
+    <li  style="list-style-type: none;"><a class="btn btn-success" href="{{{url('topics')}}}">Forum</a></li>
     <br>
   </ul>
 
