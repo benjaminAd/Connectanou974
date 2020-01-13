@@ -29,8 +29,8 @@ class DepotRequest extends FormRequest
             'desc_projet' => 'required',
             'date_debut' => 'date|after_or_equal:today',
             'date_butoir_projet' => 'required|date|after:date_debut',
-            'Budget_min_projet' => 'numeric',
-            'Budget_max_projet' => 'required|numeric',
+            'Budget_min_projet' => 'nullable|numeric|min:1',
+            'Budget_max_projet' => 'required|numeric|min:1',
         ];
     }
 

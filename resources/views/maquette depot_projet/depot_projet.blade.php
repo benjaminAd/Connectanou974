@@ -79,7 +79,8 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="Budget_min_projet" style="font-weight: bold;">Budget minimum</label>
-                            <input type="number" class="form-control" id="Budget_min_projet" aria-describedby="Budget_min_projet" name="Budget_min_projet" placeholder="Exemple : 1" value="{{ old('Budget_min_projet') }}">
+                            <input type="number" class="form-control {{ $errors->has('Budget_min_projet') ? 'is-invalid' : '' }}" id="Budget_min_projet" aria-describedby="Budget_min_projet" name="Budget_min_projet" placeholder="Exemple : 1" value="{{ old('Budget_min_projet') }}">
+                            {!! $errors->first('Budget_min_projet', '<div class="invalid-feedback">:message</div>') !!}
                         </div> 
                     </div>
                     {{-- Champs pour le budget maximum --}}
