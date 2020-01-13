@@ -42,12 +42,6 @@ class OrganisationController extends Controller
      */
     public function store(Request $request)
     {
-        //Récupération token et vérification de son existence
-        $token = $request->get('g-recaptcha-response');
-        if ($token == null) { // Lorsque que le captcha n'est pas coché $token récupère la valeur null
-            // dd($token);
-            return redirect()->route('SubscribeOrga')->withErrors(['g-recaptcha-response' => 'veuillez cocher le Captcha']);
-        }
         //Vérification des différents champs de la requête
         $this->validate($request, [
             'siret' => 'required|digits:14|numeric',
@@ -58,7 +52,6 @@ class OrganisationController extends Controller
             'CodePostal' => 'required|numeric',
             'Ville' => 'required',
             'activite' => 'required',
-            'checkbox' => 'required'
         ]);
         //Création du client et de la vérification du captcha par google
         $client = new Client([
