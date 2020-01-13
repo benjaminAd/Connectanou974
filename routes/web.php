@@ -35,16 +35,14 @@ Route::resource('Organisation', 'OrganisationController');
 //Inscription du Réalisateur de prjets
 Route::get('SubscribeReaProjet', 'ReaProjetController@index')->name('SubscribeRea');
 Route::resource('Realisateur', 'ReaProjetController');
-//Route page plan du site
+//Route page plan du site - liens vers toutes les pages du site
 Route::get('/plan',function(){
-
     return view('Site_map');
-
 });
 //Route pour la Connexion en Post et Get
 Route::get('login', 'LoginController@formulaire')->name('connect');
 Route::post('login', 'LoginController@traitement');
-//Route Mot de PAsse oublié
+//Route pour la page Mot de PAsse oublié
 Route::get('Forgot', function () {
     return view('Maquette MdpForgot.mdpForgot');
 });
@@ -59,35 +57,32 @@ Route::get('mentionLegal', function () {
 //Landing page Réalisateur de projets, incitation à l'inscription
 Route::get('landingRea', function () {
     return view('maquette landing_rea.landing_rea');
-});
+}->name('landingRea'));
 //Landing page Porteur de projets, incitation à l'inscription
 Route::get('landingPor', function () {
     return view('maquette landing_porteur.landing_por');
-});
+}->name('landingPor'));
 //Page des Dons pour l'association - HelloAsso
 Route::get('donAsso', function () {
     return view("maquette don.don");
-});
+}->name('donAsso'));
 //Page contact
 Route::get('contact', 'ContactController@create');
 Route::post('contact', 'ContactController@store');
-//formulaire de dépôt de projet 
+//formulaire de dépôt de projet pour les porteurs de projets
 Route::get('annonce', 'DepotController@create')->name('annonce.create');
 Route::post('annonce/create', 'DepotController@store')->name('annonce.store');
-// différentes parties pour la recherche de projet
+// différentes parties pour la recherche de projets
 Route::get('Recherche', 'DepotController@index')->name('RechercheAnnonce');
 Route::post('search', 'DepotController@search')->name('recherche.search');
+
 //Partie forum
-//le framework va relier les action et methodes de notre TopicController à certaines routes qui on comme préfixe topics
+//le framework va relier les actions et methodes de notre TopicController à certaines routes qui ont comme préfixe topics
 // la méthode except() permet de ne pas relier certaines routes
 //Route::post('topics','TopicController')->except(['index']);
-
 Route::resource('topics', 'TopicController');
 // route::get('/','TopicController@index');
 // route::get('forum','TopicController@index');
-
 route::post('/comments/{topic}', 'CommentController@store')->name('comments.store');
-
-
 // cette route permet de définir ou l'on posté cette réponse au commentaire en fonction de son id
 Route::post('/commentReply/{comment}', 'CommentController@storeCommentReply')->name('comments.storeReply');
