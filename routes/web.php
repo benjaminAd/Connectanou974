@@ -57,15 +57,15 @@ Route::get('mentionLegal', function () {
 //Landing page Réalisateur de projets, incitation à l'inscription
 Route::get('landingRea', function () {
     return view('maquette landing_rea.landing_rea');
-}->name('landingRea'));
+})->name('landingRea'));
 //Landing page Porteur de projets, incitation à l'inscription
 Route::get('landingPor', function () {
     return view('maquette landing_porteur.landing_por');
-}->name('landingPor'));
+})->name('landingPor'));
 //Page des Dons pour l'association - HelloAsso
 Route::get('donAsso', function () {
     return view("maquette don.don");
-}->name('donAsso'));
+})->name('donAsso'));
 //Page contact
 Route::get('contact', 'ContactController@create');
 Route::post('contact', 'ContactController@store');
