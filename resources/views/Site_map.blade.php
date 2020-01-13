@@ -35,11 +35,11 @@
     <br>
     <li  style="list-style-type: none;"><a class="btn btn-secondary"  href="{{{route('SubscribeRea')}}}">Inscription réalisateur</a></li>
     <br>
-    <li  style="list-style-type: none;"><a  class="btn btn-primary" href="{{{url('Contact')}}}" >Contact</a></li>
+    <li  style="list-style-type: none;"><a  class="btn btn-primary" href="{{{url('contact')}}}" >Contact</a></li>
     <br>
     <li  style="list-style-type: none;"><a class="btn btn-success" href="{{{url('mentionLegal')}}}">Mention légales</a></li>
     <br>
-    <li  style="list-style-type: none;"><a class="btn btn-info" href="{{{url('connect')}}}">Connexion</a></li>
+    <li  style="list-style-type: none;"><a class="btn btn-info" href="{{{route('connect')}}}">Connexion</a></li>
     <br>
     <li  style="list-style-type: none;"><a class="btn btn-danger" href="{{{route('landingRea')}}}">Porteurs de projets - landing page</a></li>
     <br>
@@ -48,8 +48,6 @@
     <li  style="list-style-type: none;"><a class="btn btn-secondary"  href="{{{route('RechercheAnnonce')}}}">Recherche de projets</a></li>
     <br>
     <li  style="list-style-type: none;"><a  class="btn btn-primary" href="{{{route('annonce.create')}}}" >Dépot de projet</a></li>
-    <br>
-    <li  style="list-style-type: none;"><a class="btn btn-success" href="{{{url('topics')}}}">Forum</a></li>
     <br>
   </ul>
 
