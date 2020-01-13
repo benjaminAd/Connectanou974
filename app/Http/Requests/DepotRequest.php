@@ -26,7 +26,7 @@ class DepotRequest extends FormRequest
         return [
             'titre_projet' => 'required|alpha_dash',
             'type_projet' => 'required',
-            'desc_projet' => 'required|alpha_dash',
+            'desc_projet' => 'required',
             'date_debut' => 'date|after_or_equal:today',
             'date_butoir_projet' => 'required|date|after:date_debut',
             'Budget_min_projet' => 'numeric',
