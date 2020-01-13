@@ -91,12 +91,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
-                    @if ($errors->has('g-recaptcha-response'))
-                         <div class="alert alert-danger">{{ $errors->first('g-recaptcha-response') }}</div>
-                    @endif
-                    </div>
                 <button type="submit" class="btn btn-primary">Soumettre votre projet</button>
             </form>
             </div>
