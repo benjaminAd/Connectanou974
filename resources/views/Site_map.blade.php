@@ -40,7 +40,17 @@
     <li  style="list-style-type: none;"><a class="btn btn-success" href="{{{url('mentionLegal')}}}">Mention légales</a></li>
     <br>
     <li  style="list-style-type: none;"><a class="btn btn-info" href="{{{url('connect')}}}">Connexion</a></li>
-
+    <br>
+    <li  style="list-style-type: none;"><a class="btn btn-danger" href="{{{route('landingRea')}}}">Porteurs de projets - landing page</a></li>
+    <br>
+    <li  style="list-style-type: none;"><a class="btn btn-warning" href="{{{route('landingPor')}}}">Réalisateurs de projet - landing page</a></li>
+    <br>
+    <li  style="list-style-type: none;"><a class="btn btn-secondary"  href="{{{route('Recherche')}}}">Recherche de projets</a></li>
+    <br>
+    <li  style="list-style-type: none;"><a  class="btn btn-primary" href="{{{route('annonce')}}}" >Dépot de projet</a></li>
+    <br>
+    <li  style="list-style-type: none;"><a class="btn btn-success" href="{{{route('topics')}}}">Forum</a></li>
+    <br>
   </ul>
 
  
