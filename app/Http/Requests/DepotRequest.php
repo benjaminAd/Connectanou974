@@ -31,7 +31,6 @@ class DepotRequest extends FormRequest
             'date_butoir_projet' => 'required|date|after:date_debut',
             'Budget_min_projet' => 'numeric',
             'Budget_max_projet' => 'required|numeric',
-            'g-recaptcha-response' => 'required',
         ];
     }
 
