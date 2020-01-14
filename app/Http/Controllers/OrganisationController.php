@@ -44,31 +44,18 @@ class OrganisationController extends Controller
     {
         //Vérification des différents champs de la requête
         $this->validate($request, [
-            'siret' => 'required|digits:14|numeric',
+            'siret' => 'nullable|digits:14|numeric',
+            'typeOrganisation' => 'required',
             'RaisonSociale' => 'required',
-            'telephone' => 'required|numeric',
-            'site' => 'required',
-            'adresse' => 'required',
+            'telephone' => 'nullable|numeric',
+            'site' => 'nullable|url',
+            'adresse' => 'nullable',
             'CodePostal' => 'required|numeric',
             'Ville' => 'required',
+            'salaries' => 'nullable|numeric|min:0',
             'activite' => 'required',
         ]);
-        //Création du client et de la vérification du captcha par google
-        $client = new Client([
-            'base_uri' => 'https://www.google.com/recaptcha/api/',
-            'timeout' => 5.0
-        ]);
-        $reponse = $client->request('POST', 'siteverify', [
-            'query' => [
-                'secret' => env('CAPTCHA_SECRET'),
-                'response' => $token
-            ]
-        ]);
-        $resultat = json_decode($reponse->getBody()->getContents());
-        // dd($resultat);
-        if (!$resultat->success) {
-            return redirect()->route('SubscribeOrga')->withErrors(['g-recaptcha-response' => 'Une erreur est survenue veuillez compléter le Captcha']);
-        }
+
         $idCP = DB::table('code_postaux')->where('CodePostal', $request->get('CodePostal'))->value('Id'); //Récupère l'id du Code Postal correspondant à celui entrer dans le champs
         //Crée la variable organisation pour ensuite la sauvegarde dans la bdd avec -> save()
         $organisation = new Organisations([
@@ -80,7 +67,7 @@ class OrganisationController extends Controller
             'LogoURL' => 'un url quelconque',
             'Activite' => $request->get('activite'),
             'Telephone' => $request->get('telephone'),
-            'NbSalaries' => $request->get('salariés'),
+            'NbSalaries' => $request->get('salaries'),
             'SiteUrl' => $request->get('site'),
             'Adresse' => $request->get('adresse')
         ]);
@@ -102,13 +89,17 @@ class OrganisationController extends Controller
          * @return Path du fichier uploader 
          */
         $this->validate($request, [
-            'select_file' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+            'select_file' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
         $image = $request->file('select_file'); //Méthode fournie par Laravel afin de récupérer le fichier uploader
-        $new_name = $id . '.' . $image->getClientOriginalExtension(); //La variable new_name va nous permettre de renommer l'image comme bon nous semble
-        //dans ce cas, on renome l'image avec l'id de l'organistion et on reprend l'extension du fichier uploader par client
-        $image->move(public_path("img/Logo"), $new_name); //Méthode fournie par Laravel qui permet de donner le nouveau chemin pour le fichier uploader
-        return public_path("img\Logo\\") . $new_name; //Renvoie le path du fichier afin de l'ajouter dans la bdd dans la fonction store
+        
+        if (isset($image)) {
+            $new_name = $id . '.' . $image->getClientOriginalExtension();
+            //La variable new_name va nous permettre de renommer l'image comme bon nous semble
+            //dans ce cas, on renome l'image avec l'id de l'organistion et on reprend l'extension du fichier uploader par client
+            $image->move(public_path("img/Logo"), $new_name); //Méthode fournie par Laravel qui permet de donner le nouveau chemin pour le fichier uploader
+            return public_path("img\Logo\\") . $new_name; //Renvoie le path du fichier afin de l'ajouter dans la bdd dans la fonction store
+        } 
     }
 
     /**
