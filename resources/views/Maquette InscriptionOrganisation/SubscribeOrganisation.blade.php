@@ -25,14 +25,14 @@
             <label>Raison sociale<span id="important">*</span></label>
             <div class="form-group">
                 <div class="form-inline" id="Organisation">
-                    <select name="typeOrganisation" class="custom-select col-3 {{ $errors->has('typeOrganisation') ? 'is-invalid' : '' }}" id="typeOrganisation" value="{{ old('typeOrganisation') }}">
+                    <select name="typeOrganisation" class="custom-select col-3 {{ $errors->has('typeOrganisation') ? 'is-invalid' : '' }}" id="typeOrganisation">
                         <option value="">Type</option>
                         @foreach($types as $type)
-                            <option value="{{ $type->Id }}" @if (old('typeOrganisation') == "{{ $type->Id }}") {{ 'selected' }} @endif>{{ $type->TypeOrganisation }}</option>
+                            <option value="{{ $type->Id }}" {{ (old("typeOrganisation") == $type->Id ? "selected":"") }}>{{ $type->TypeOrganisation }}</option>
                         @endforeach
                     </select>
-                    
                     <input type="text" name="RaisonSociale" class="form-control col-9 {{ $errors->has('RaisonSociale') ? 'is-invalid' : '' }}" id="label" placeholder="ex : Connectanou" value="{{ old('RaisonSociale') }}" />
+                    {!! $errors->first('typeOrganisation', '<div class="invalid-feedback">:message</div>') !!}
                     {!! $errors->first('RaisonSociale', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <label>Activité de l'Organisation<span id="important">*</span></label>
                 <textarea class="form-control {{ $errors->has('activite') ? 'is-invalid' : '' }}" name="activite" id="activite" rows="3" placeholder="Ex : Association qui permet à de jeunes étudiants
 en informatique à gérer différents projets comme la création d'un site internet ou la création d'une application mobile pour des Petites et Moyennes Entreprises.">{{ old('activite') }}</textarea>
-                {!! $errors->first('salaries', '<div class="invalid-feedback">:message</div>') !!}
+                {!! $errors->first('activite', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group files">
                 <label>Importez votre Logo</label>

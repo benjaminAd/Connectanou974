@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    <title>dépôt projets</title>
+    <title>Dépôt de projets</title>
 @endsection
 @section('link')
     <link rel="stylesheet" href="./css/style_Contact.css"/>
