@@ -4,24 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad694e43ef0acbdeca355cee417af252",
+    "content-hash": "20c8b678785779aedb81970f084ddb9f",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
-            "version": "4.0.8",
+            "version": "3.0.62",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "b508ae398fc1a8453a6877229e57460dd07ecfa2"
+                "reference": "fcb8cec051b175278e0a9efa440f0b1033d12dd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/b508ae398fc1a8453a6877229e57460dd07ecfa2",
-                "reference": "b508ae398fc1a8453a6877229e57460dd07ecfa2",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/fcb8cec051b175278e0a9efa440f0b1033d12dd7",
+                "reference": "fcb8cec051b175278e0a9efa440f0b1033d12dd7",
                 "shasum": ""
-            },
-            "require": {
-                "ext-json": "*"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.10"
@@ -50,7 +47,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2019-12-19T09:38:31+00:00"
+            "time": "2019-03-17T10:36:46+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
