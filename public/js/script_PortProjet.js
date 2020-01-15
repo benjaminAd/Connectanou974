@@ -1,9 +1,9 @@
 $(function() {
-	$('select[name="typeOrganisation"]').val('organisation');
+	$('select[name="type_organisation"]').val('organisation');
 	$('#nomorganisation').show();
 	$('#nomentreprise').hide();
 	$('#nomassociation').hide();
-	$('select[name="typeOrganisation"]').change(function() {
+	$('select[name="type_organisation"]').change(function() {
 		// lorsqu'on change de valeur dans la liste
 		var valeur = $(this).val(); // valeur sélectionnée
 		if (valeur == 'particulier') {

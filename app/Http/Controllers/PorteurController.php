@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PorteurRequest;
 use App\Porteur;
 use App\User;
 use Illuminate\Support\Facades\DB;
@@ -42,29 +43,17 @@ class PorteurController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PorteurRequest $request)
     {
-        //Récupération token et vérification de son existence
-        $token = $request->get('g-recaptcha-response');
-        if ($token == null) { // Lorsque que le captcha n'est pas coché $token récupère la valeur null
-            // dd($token);
-            return redirect()->route('PortProjetSub')->withErrors(['g-recaptcha-response' => 'veuillez cocher le Captcha']);
-        }
-        //Ajout des règles de validations
-        $this->validate($request, [
-            'password' => 'required|min:6 |regex:#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)# ', //expression régulière autorisant au minimum une minuscule, majuscule,chiffre et un symbole
-            'password2' => 'required|min:6|regex:#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#',
-            'mail' => 'required|email',
-            'nom' => 'required',
-            'prenom' => 'required',
-            'pseudo' => 'required',
-            'tel' => 'required',
-            'Poste' => 'required',
-            'mentionsLegales' => 'required',
+        // //Récupération token et vérification de son existence
+        // $token = $request->get('g-recaptcha-response');
+        // if ($token == null) { // Lorsque que le captcha n'est pas coché $token récupère la valeur null
+        //     // dd($token);
+        //     return redirect()->route('PortProjetSub')->withErrors(['g-recaptcha-response' => 'veuillez cocher le Captcha']);
+        // }
 
-        ]);
         $password = $request->get('password');
-        $confPassword = $request->get('password2');
+        $confPassword = $request->get('password_confirmation');
         if (((DB::table('porteurs')->where('Email', $request->get("mail"))->count()) == 1)) { //Si l'email est déjà dans la base alors on n'accepte pas l'inscription
             return redirect()->route('PortProjetSub')->withErrors(['MailUsed' => 'Cette Adresse E-mail est déjà utilisé par l\'un de nos clients']);
         }
@@ -79,10 +68,9 @@ class PorteurController extends Controller
             $Orga = (int) $request->get('NomEntreprise'); //
         } else if ($request->get('NomAssociation') != "") {
             $Orga = (int) $request->get('NomAssociation');
-        } else if ($request->get('typeOrganisation') == "particulier") {
+        } else if ($request->get('type_organisation') == "particulier") {
             $Orga = null; //Si c'est un particulier alors il n'appartient à aucune Organisation
         } else {
-
             return redirect()->route('PortProjetSub')->withErrors(['ErreurOrganisation' => 'Vous devez entrez une Entreprise ou une Association ou un poste en tant que Particulier']);
         }
         $client = new Client([
