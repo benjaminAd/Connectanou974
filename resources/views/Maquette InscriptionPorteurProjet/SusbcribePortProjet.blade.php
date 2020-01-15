@@ -28,116 +28,94 @@
             <div class="row">
                 <div class="form-group col">
                     <label for="nom">Nom<span id="important">*</span></label>
-                <input type="text" class="form-control" name="nom" id="nom" placeholder="ex : Hoareau" value="{{old('nom')}}"/>
-                @if ($errors->has('nom')) <div class="alert alert-danger">{{ $errors->first('nom') }}</div> @endif
+                    <input type="text" class="form-control {{ $errors->has('nom') ? 'is-invalid' : '' }}" name="nom" id="nom" placeholder="ex : Hoareau" value="{{ old('nom') }}"/>
+                    {!! $errors->first('nom', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
                 <div class="form-group col">
                     <label class="text-left" for="prenom">Prénom<span id="important">*</span></label>
-                    <input type="text" name="prenom" class="form-control" id="prenom" placeholder="ex : Boris"value="{{old('prenom')}}"
-                           />
-                    @if ($errors->has('prenom')) <div class="alert alert-danger">{{ $errors->first('prenom') }}</div> @endif
+                    <input type="text" name="prenom" class="form-control {{ $errors->has('prenom') ? 'is-invalid' : '' }}" id="prenom" placeholder="ex : Boris" value="{{ old('prenom') }}" />
+                    {!! $errors->first('prenom', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
             </div>
             <div class="form-group">
                 <label for="Organisation">Organisation<span id="important">*</span></label>
                 <div class="form-inline" id="Organisation">
-                    <select name="typeOrganisation" class="custom-select col-3" id="typeOrganisation">
-                        <option value="organisation" selected>Type</option>
-                        <option value="particulier">Particulier</option>
-                        <option value="entreprise">Entreprise</option>
-                        <option value="association">Association</option>
+                    <select name="type_organisation" class="custom-select col-3 {{ $errors->has('type_organisation') ? 'is-invalid' : '' }}" id="type_organisation">
+                        <option value="">Type</option>
+                        <option value="particulier" @if (old('type_organisation') == "particulier") {{ 'selected' }} @endif>Particulier</option>
+                        <option value="entreprise" @if (old('type_organisation') == "entreprise") {{ 'selected' }} @endif>Entreprise</option>
+                        <option value="association" @if (old('type_organisation') == "assocation") {{ 'selected' }} @endif>Association</option>
                     </select>
-                    &nbsp;&nbsp;
-                    <!-- <select class="custom-select col" id="nomorganisation" disabled>
-                                <option selected>Choisissez le nom de votre Organisation</option>
-                            </select> -->
-                    <select name="NomAssociation" class="custom-select col" id="nomassociation">
-                        <option value="" selected>Choisissez le nom de votre Association</option>
-                        {{--<option value="0">Connectanou</option>
-                        <option value="1">Croix Rouge</option>--}}
 
+                    <select name="NomAssociation" class="custom-select col-9" id="nomassociation">
+                        <option value="" selected>Choisissez le nom de votre Association</option>
                         @foreach($associations as $association)
-                            <option value="{{$association->Id}}">{{$association->RaisonSociale}}</option>
+                            <option value="{{ $association->Id }}">{{ $association->RaisonSociale }}</option>
                         @endforeach
                         <option value="ajouter">Ajouter</option>
                     </select>
-                    <select name="NomEntreprise" class="custom-select col" id="nomentreprise">
-                        <option value="" selected>Choisissez le nom de votre Entreprise</option>
-                        {{-- <option value="3">Apple</option>
-                         <option value="4">Facebook</option>--}}
+
+                    <select name="NomEntreprise" class="custom-select col-9" id="nomentreprise">
+                        <option value="" selected>Choisissez le nom de votre entreprise</option>
                         @foreach($entreprises as $entreprise)
-                            <option value="{{$entreprise->Id}}">{{$entreprise->RaisonSociale}}</option>
+                            <option value="{{ $entreprise->Id }}">{{ $entreprise->RaisonSociale }}</option>
                         @endforeach
                         <option value="ajouter">Ajouter</option>
                     </select>
-                    <input type="text" class="form-control col" id="nomorganisation" placeholder="ex : Connectanou"
-                           disabled/>
+
+                    <input type="text" class="form-control col-9" id="nomorganisation" placeholder="ex : Connectanou" disabled/>
+                    {!! $errors->first('typeOrganisation', '<div class="invalid-feedback">:message</div>') !!}
+                    @if($errors->has('ErreurOrganisation'))
+                    <div class="alert alert-danger">{{$errors->first('ErreurOrganisation')}}</div>
+                    @endif
                 </div>
-                @if($errors->has('ErreurOrganisation'))
-                <div class="alert alert-danger">{{$errors->first('ErreurOrganisation')}}</div>
-                @endif
             </div>
             <div class="form-group" id="post">
                 <label for="Poste">Poste</label>
-                <input type="text" class="form-control" name="Poste" id="posteEntreprise"
-                       placeholder="ex : Gérant" value="{{old('Poste')}}"/>
-                @if ($errors->has('Poste')) <div class="alert alert-danger">{{ $errors->first('Poste') }}</div> @endif
+                <input type="text" class="form-control" name="Poste" id="posteEntreprise" placeholder="ex : Gérant" value="{{ old('Poste') }}"/>
+                {!! $errors->first('Poste', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
-                <label for="tel">Numéro de Téléphone</label>
-                <input type="tel" name="tel" id="telephone" class="form-control" placeholder="ex : 0692 xx xx xx" value="{{old('tel')}}"/>
-                @if ($errors->has('tel')) <div class="alert alert-danger">{{ $errors->first('tel') }}</div> @endif
+                <label for="tel">Numéro de téléphone</label>
+                <input type="tel" name="tel" id="telephone" class="form-control {{ $errors->has('tel') ? 'is-invalid' : '' }}" placeholder="ex : 0692 xx xx xx" value="{{ old('tel') }}"/>
+                {!! $errors->first('tel', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <!-- Email -->
             <div class="form-group">
-                <label for="mail">Adresse eMail<span id="important">*</span></label>
-                <input type="email" id="mail" name="mail" class="form-control" placeholder="ex : HoareauBoris@gmail.com" value="{{old('mail')}}"
-                       />
-                @if ($errors->has('mail')) <div class="alert alert-danger">{{ $errors->first('mail') }}</div> @endif
+                <label for="mail">Adresse email<span id="important">*</span></label>
+                <input type="email" id="mail" name="mail" class="form-control {{ $errors->has('mail') ? 'is-invalid' : '' }}" placeholder="ex : HoareauBoris@gmail.com" value="{{ old('mail') }}" />
+                {!! $errors->first('mail', '<div class="invalid-feedback">:message</div>') !!}
             </div>
-
+            {{-- Pseudo --}}
             <div class="form-group">
                 <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo" id="login" class="form-control" placeholder="ex : ConnectanouGérant974" value="{{old('pseudo')}}"
-                       />
-                @if ($errors->has('pseudo')) <div class="alert alert-danger">{{ $errors->first('pseudo') }}</div> @endif
+                <input type="text" name="pseudo" id="login" class="form-control" placeholder="ex : ConnectanouGérant974" value="{{ old('pseudo') }}" />
             </div>
-            <!-- Password -->
+            {{-- Mot de passe --}}
             <div class="form-group">
-                <label for="password">Mot de Passe<span id="important">*</span></label>
-                <input type="password" name="password" id="mdp" class="form-control" placeholder="***************"/>
-                 @if ($errors->has('password')) <div class="alert alert-danger">{{ $errors->first('password') }}</div> @endif
-            
+                <label for="password">Mot de passe<span id="important">*</span></label>
+                <input type="password" name="password" id="mdp" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="***************"/> 
+                <small id="passwordHelpBlock" class="form-text text-muted">Votre mot de passe doit comporter plus de 8 caractères et doit contenir au moins<br> 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.
+                </small>
+            </div>   
             <div class="form-group">
-                <label for="password2">Confirmez votre Mot de Passe<span id="important">*</span></label>
-                <input type="password" name="password2" id="mdp2" class="form-control" placeholder="***************"
-                       />
-                 @if ($errors->has('password2')) <div class="alert alert-danger">{{ $errors->first('password2') }}</div> @endif
+                <label for="password_confirmation">Confirmez votre mot de passe<span id="important">*</span></label>
+                <input type="password" name="password_confirmation" id="mdp2" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="***************" />
+                {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="custom-control custom-checkbox form-group">
-                <input type="checkbox" class="custom-control-input" id="customCheck1" name="mentionsLegales"/>
+                <input type="checkbox" class="custom-control-input {{ $errors->has('mentionsLegales') ? 'is-invalid' : '' }}" id="customCheck1" name="mentionsLegales"/>
                 <label class="custom-control-label" for="customCheck1">En cochant cette case, j'accepte que mes
-                    informations saisies soient utilisées<br/> uniquement dans le cadre <a href="#"
-                                                                                           class="lien">légale</a> dans
-                    l'association.
-                 @if ($errors->has('mentionsLegales')) <div class="alert alert-danger">{{ $errors->first('mentionsLegales') }}</div> @endif
+                    informations saisies soient utilisées<br/> uniquement dans le cadre <a href="#" class="lien">légale</a> dans
+                    l'association.</label>
+                    {!! $errors->first('mentionsLegales', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
-            @if ($errors->has('g-recaptcha-response'))
-                 <div class="alert alert-danger">{{ $errors->first('g-recaptcha-response') }}</div>
-            @endif
-            </div>
-            {{-- <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LdxmMAUAAAAAGaKb_PBUkAazJGtn_kBjNI1zViW"></script>
-              <script>
-              grecaptcha.ready(function() {
-                  grecaptcha.execute('_reCAPTCHA_site_key_', {action: 'homepage'}).then(function(token) {
-
-                  });
-              });
-        </script> --> --}}
+                <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                {!! $errors->first('g-recaptcha-response', '<div class="invalid-feedback">:message</div>') !!}
+                </div>
             <!-- Sign in button -->
-            <button class="btn btn-info btn-block my-4 " type="submit" id="bouton">
+            <button class="btn btn-info btn-block my-4" type="submit" id="bouton">
                 S'inscrire
             </button>
         </form>
@@ -147,10 +125,5 @@
 @endsection
 @section('script')
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- <script>
-     function onSubmit(token) {
-       document.getElementById("demo-form").submit();
-     }
-   </script> -->
     <script src="./js/script_PortProjet.js"></script>
 @endsection
