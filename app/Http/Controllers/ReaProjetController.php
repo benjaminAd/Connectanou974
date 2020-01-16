@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\RealisateurRequest;
 use Illuminate\Support\Facades\Hash;
 use GuzzleHttp\Client;
 use App\realisateur_projets;
@@ -49,7 +50,7 @@ class ReaProjetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RealisateurRequest $request)
     {
         //Récupération token et vérification de son existence
         $token = $request->get('g-recaptcha-response');
@@ -57,29 +58,16 @@ class ReaProjetController extends Controller
             // dd($token);
             return redirect()->route('SubscribeRea')->withErrors(['g-recaptcha-response' => 'veuillez cocher le Captcha']);
         }
-        //Règles de validations
+        
         $mdp = $request->get("password");
-        $confmdp = $request->get("password2");
-        if ($mdp != $confmdp) {
-            return redirect()->route("SubscribeRea")->withErrors(["Diffmdp" => "Les Mots de Passes ne correspondent pas"]);
-        }
+
         if (((DB::table('realisateur_projets')->where('Email', $request->get("mail"))->count()) == 1)) { //Si l'email est déjà dans la base alors on n'accepte pas l'inscription
             return redirect()->route('SubscribeRea')->withErrors(['MailUsed' => 'Cette Adresse E-mail est déjà utilisé par l\'un de nos clients']);
         }
-        if ((DB::table('realisateur_projets')->where('Login', $request->get('login'))->count()) == 1) { //De même pour le pseudo
+        if ((DB::table('realisateur_projets')->where('Login', $request->get('login'))->count()) >= 1) { //De même pour le pseudo
             return redirect()->route('SubscribeRea')->withErrors(['LoginUsed' => 'Ce pseudo est déjà utilisé par l\'un de nos clients']);
         }
-        $this->validate($request, [
-            'nom' => 'required|alpha',
-            'prenom' => 'required|alpha',
-            'mail' => 'required|email',
-            'login' => 'required',
-            'password' => 'required|min:6 |regex:#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)# ', //expression régulière autorisant au minimum une minuscule, majuscule,chiffre et un symbole
-            'password2' => 'required|min:6|regex:#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#',
-            'tel' => 'required|numeric',
-            'naissance' => 'required|date',
-            'check' => 'required'
-        ]);
+
         //On récupère la formation selectionné dans le menu déroulant
         $formations = $request->get("Formation");
         if ($formations == "Autre") {
@@ -134,7 +122,7 @@ class ReaProjetController extends Controller
             'Email' => $request->get('mail'),
             'Login' => $request->get('login'),
             'Mdp' => Hash::make($mdp),
-            'Telephone' => $request->get('tel'),
+            'Telephone' => $request->get('telephone'),
             'DateNaissance' => $request->get("naissance"),
             'CVURL' => null,
             'IdOrga' => $ecole,
@@ -145,7 +133,7 @@ class ReaProjetController extends Controller
             'IdDiplomes' => $diplome,
             'IdFormations' => $formations,
             'IdStatut' => $request->get('statut'),
-            'IdDomaine' => $request->get('Domains')
+            'IdDomaine' => $request->get('domaine')
         ]);
         $realisateur->save();
         $id = DB::table('realisateur_projets')->where('Login', $request->get('login'))->value('Id');
@@ -164,7 +152,7 @@ class ReaProjetController extends Controller
          * @return Path du fichier uploader 
          */
         $this->validate($request, [
-            'select_file' => 'required|file|mimes:doc,docx,pdf|max:2048'
+            'select_file' => 'nullable|file|mimes:doc,docx,pdf|max:2048'
         ]);
         $cv = $request->file('select_file'); //Méthode fournie par Laravel afin de récupérer le fichier uploader
         $new_name = $id . '.' . $cv->getClientOriginalExtension(); //La variable new_name va nous permettre de renommer l'image comme bon nous semble et on récupère l'extension originale du fichier

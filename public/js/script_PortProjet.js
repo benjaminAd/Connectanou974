@@ -1,5 +1,5 @@
 $(function() {
-	$('select[name="type_organisation"]').val('organisation');
+	$('select[name="type_organisation"]').val();
 	$('#nomorganisation').show();
 	$('#nomentreprise').hide();
 	$('#nomassociation').hide();
@@ -7,7 +7,6 @@ $(function() {
 		// lorsqu'on change de valeur dans la liste
 		var valeur = $(this).val(); // valeur sélectionnée
 		if (valeur == 'particulier') {
-			console.log('je suis un ' + valeur);
 			$('.importSelect').show();
 			$('#posteEntreprise').prop('required', true);
 			$('#nomorganisation').show();
@@ -51,28 +50,3 @@ $(function() {
 		});
 	});
 });
-/*(function () {
-    'use strict';
-    window.addEventListener(
-        'load',
-        function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener(
-                    'submit',
-                    function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    },
-                    false
-                );
-            });
-        },
-        false
-    );
-})();*/
