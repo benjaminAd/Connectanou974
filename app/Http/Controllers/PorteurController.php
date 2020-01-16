@@ -46,11 +46,11 @@ class PorteurController extends Controller
     public function store(PorteurRequest $request)
     {
         // //Récupération token et vérification de son existence
-        // $token = $request->get('g-recaptcha-response');
-        // if ($token == null) { // Lorsque que le captcha n'est pas coché $token récupère la valeur null
-        //     // dd($token);
-        //     return redirect()->route('PortProjetSub')->withErrors(['g-recaptcha-response' => 'veuillez cocher le Captcha']);
-        // }
+        $token = $request->get('g-recaptcha-response');
+        if ($token == null) { // Lorsque que le captcha n'est pas coché $token récupère la valeur null
+            // dd($token);
+            return redirect()->route('PortProjetSub')->withErrors(['g-recaptcha-response' => 'veuillez cocher le Captcha']);
+        }
 
         $password = $request->get('password');
         $confPassword = $request->get('password_confirmation');
