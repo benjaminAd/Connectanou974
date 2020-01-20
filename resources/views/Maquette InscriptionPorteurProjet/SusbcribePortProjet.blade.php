@@ -44,19 +44,19 @@
                         <option value="">Type</option>
                         <option value="particulier" @if (old('type_organisation') == "particulier") {{ 'selected' }} @endif>Particulier</option>
                         <option value="entreprise" @if (old('type_organisation') == "entreprise") {{ 'selected' }} @endif>Entreprise</option>
-                        <option value="association" @if (old('type_organisation') == "assocation") {{ 'selected' }} @endif>Association</option>
+                        <option value="association" @if (old('type_organisation') == "association") {{ 'selected' }} @endif>Association</option>
                     </select>
 
-                    <select name="NomAssociation" class="custom-select col-9" id="nomassociation">
-                        <option value="" selected>Choisissez le nom de votre Association</option>
+                    <select name="NomAssociation" class="custom-select col-9 {{ $errors->has('NomAssociation') ? 'is-invalid' : '' }}" id="nomassociation">
+                        <option value="">Choisissez le nom de votre Association</option>
                         @foreach($associations as $association)
                             <option value="{{ $association->Id }}">{{ $association->RaisonSociale }}</option>
                         @endforeach
                         <option value="ajouter">Ajouter</option>
                     </select>
 
-                    <select name="NomEntreprise" class="custom-select col-9" id="nomentreprise">
-                        <option value="" selected>Choisissez le nom de votre entreprise</option>
+                    <select name="NomEntreprise" class="custom-select col-9 {{ $errors->has('NomEntreprise') ? 'is-invalid' : '' }}" id="nomentreprise">
+                        <option value="">Choisissez le nom de votre entreprise</option>
                         @foreach($entreprises as $entreprise)
                             <option value="{{ $entreprise->Id }}">{{ $entreprise->RaisonSociale }}</option>
                         @endforeach
@@ -68,11 +68,14 @@
                     @if($errors->has('ErreurOrganisation'))
                     <div class="alert alert-danger">{{$errors->first('ErreurOrganisation')}}</div>
                     @endif
+                    {!! $errors->first('type_organisation', '<div class="invalid-feedback">:message</div>') !!}
+                    {!! $errors->first('NomAssociation', '<div class="invalid-feedback">:message</div>') !!}
+                    {!! $errors->first('NomEntreprise', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
             </div>
             <div class="form-group" id="post">
                 <label for="Poste">Poste</label>
-                <input type="text" class="form-control" name="Poste" id="posteEntreprise" placeholder="ex : Gérant" value="{{ old('Poste') }}"/>
+                <input type="text" class="form-control {{ $errors->has('Poste') ? 'is-invalid' : '' }}" name="Poste" id="posteEntreprise" placeholder="ex : Gérant" value="{{ old('Poste') }}"/>
                 {!! $errors->first('Poste', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             <div class="form-group">

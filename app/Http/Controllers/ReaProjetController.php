@@ -155,10 +155,13 @@ class ReaProjetController extends Controller
             'select_file' => 'nullable|file|mimes:doc,docx,pdf|max:2048'
         ]);
         $cv = $request->file('select_file'); //Méthode fournie par Laravel afin de récupérer le fichier uploader
+        
+        if (isset($image)) {
         $new_name = $id . '.' . $cv->getClientOriginalExtension(); //La variable new_name va nous permettre de renommer l'image comme bon nous semble et on récupère l'extension originale du fichier
         //dans ce cas, on renome l'image avec l'id de l'organistion et on reprend l'extension du fichier uploader par client
         $cv->move(public_path("CV"), $new_name); //Méthode fournie par Laravel qui permet de donner le nouveau chemin pour le fichier uploader
         return public_path("CV\\") . $new_name; //Renvoie le path du fichier afin de l'ajouter dans la bdd dans la fonction store
+        }
     }
 
     /**
