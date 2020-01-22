@@ -54,7 +54,7 @@ class PorteurRequest extends FormRequest
             'password.regex' => 'Votre mot de passe doit comporter plus de 8 caractères et doit contenir au moins<br> 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.',
             'Poste.required_if' => 'Le champ poste est obligatoire.',
             'mentionsLegales.required' => 'Veuillez cocher la case ci-dessous.',
-            'g-recaptcha-response.required' => 'Veuillez cocher le captcha.',
+            'g-recaptcha-response.required' => 'Veuillez cocher le captcha ci-dessous.',
         ];
     }
 }

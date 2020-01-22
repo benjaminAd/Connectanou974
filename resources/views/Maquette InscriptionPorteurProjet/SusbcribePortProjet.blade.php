@@ -115,8 +115,9 @@
             </div>
             <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                {!! $errors->first('g-recaptcha-response', '<div class="invalid-feedback d-block">:message</div>') !!}
             </div>
-                 {!! $errors->first('g-recaptcha-response', '<div class="alert alert-danger">:message</div>') !!}
+                 
             <!-- Sign in button -->
             <button class="btn btn-info btn-block my-4" type="submit" id="bouton">
                 S'inscrire

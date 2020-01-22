@@ -161,9 +161,9 @@
         {!! $errors->first('check', '<div class="invalid-feedback">:message</div>') !!}
       </div>
       <div class="form-group">
-        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+        <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
         @if ($errors->has('g-recaptcha-response'))
-              <div class="alert alert-danger">{{ $errors->first('g-recaptcha-response') }}</div>
+          <div class="invalid-feedback d-block">{{ $errors->first('g-recaptcha-response') }}</div>
         @endif
       </div>
       <!-- Sign in button -->
