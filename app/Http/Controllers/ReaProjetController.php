@@ -61,15 +61,6 @@ class ReaProjetController extends Controller
         
         $mdp = $request->get("password");
 
-        if (((DB::table('realisateur_projets')->where('Email', $request->get("mail"))->count()) == 1)) { //Si l'email est déjà dans la base alors on n'accepte pas l'inscription
-            return redirect()->route('SubscribeRea')->withErrors(['MailUsed' => 'Cette Adresse E-mail est déjà utilisé par l\'un de nos clients']);
-        }
-        if(!empty($request->get('login'))) {
-            if ((DB::table('realisateur_projets')->where('Login', $request->get('login'))->count()) >= 1) { 
-                return redirect()->route('SubscribeRea')->withErrors(['LoginUsed' => 'Ce pseudo est déjà utilisé par l\'un de nos clients']);
-            }
-        }
-
         //On récupère la formation selectionné dans le menu déroulant
         $formations = $request->get("Formation");
         if ($formations == "Autre") {

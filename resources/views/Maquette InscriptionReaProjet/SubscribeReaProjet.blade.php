@@ -12,8 +12,6 @@
        {{csrf_field()}}
       <img class="img-fluid rounded-circle mx-auto d-block" src="./img/fav_png150vct.png" alt="Logo" />
       <p class="h4 mb-4 text-center">Inscrivez-vous en tant que Réalisateur de Projet</p>
-      @if ($errors->has('MailUsed')) <div class="alert alert-danger">{{ $errors->first('MailUsed') }}</div> @endif
-      @if ($errors->has('LoginUsed')) <div class="alert alert-danger">{{ $errors->first('LoginUsed') }}</div> @endif
       <div class="row">
         <div class="form-group col">
           <label for="nom">Nom<span id="important">*</span></label>
