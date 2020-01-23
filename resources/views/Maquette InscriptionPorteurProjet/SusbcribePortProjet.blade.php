@@ -92,7 +92,8 @@
             {{-- Pseudo --}}
             <div class="form-group">
                 <label for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo" id="login" class="form-control" placeholder="ex : ConnectanouGérant974" value="{{ old('pseudo') }}" />
+                <input type="text" name="pseudo" id="login" class="form-control {{ $errors->has('pseudo') ? 'is-invalid' : '' }}" placeholder="ex : ConnectanouGérant974" value="{{ old('pseudo') }}" />
+                {!! $errors->first('pseudo', '<div class="invalid-feedback">:message</div>') !!}
             </div>
             {{-- Mot de passe --}}
             <div class="form-group">

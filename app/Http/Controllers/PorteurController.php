@@ -53,18 +53,7 @@ class PorteurController extends Controller
         }
 
         $password = $request->get('password');
-        $confPassword = $request->get('password_confirmation');
-        if (((DB::table('porteurs')->where('Email', $request->get("mail"))->count()) == 1)) { //Si l'email est déjà dans la base alors on n'accepte pas l'inscription
-            return redirect()->route('PortProjetSub')->withErrors(['MailUsed' => 'Cette Adresse E-mail est déjà utilisé par l\'un de nos clients']);
-        }
-        if(!empty($request->get('pseudo'))) {
-            if ((DB::table('porteurs')->where('Login', $request->get('pseudo'))->count()) == 1) { //De même pour le pseudo
-                return redirect()->route('PortProjetSub')->withErrors(['LoginUsed' => 'Ce pseudo est déjà utilisé par l\'un de nos clients']);
-            }
-        }
-        if ($password != $confPassword) {
-            return redirect()->route('PortProjetSub')->withErrors(['Diffmdp' => 'Les Mots de Passes ne correspondent pas']);
-        }
+
         //Vérification si le client a choisi une entreprise, une association ou s'il est un particulier
         if ($request->get('NomEntreprise') != "") {
             $Orga = (int) $request->get('NomEntreprise'); //
