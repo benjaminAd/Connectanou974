@@ -68,7 +68,7 @@
                             <div class="frontside">
                                 <div class="card ">
                                     <div class="card-body text-center">
-                                        <p><img src="img/Jenna_photo.jpg" ></p>
+                                        <p><img class="img-fluid" src="img/photo-jenna.png"></p>
                                         <h4 class="card-title">Jenna Pourchot</h4>
                                         <p class="card-text">Présidente de l'association</p>
 
@@ -287,7 +287,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="img/Yann.jpg" alt="card image"></p><h4 class="card-title">Yann</h4>
+                                        <p><img class="img-fluid" src="img/Yann.jpg" alt="card image"></p><h4 class="card-title">Yann</h4>
                                         <p class="card-text">Web developpeur-Stagiaire</p>
 
                                     </div>
@@ -381,7 +381,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="img/faces/Benjamin.jpg" alt="card image"></p><h4 class="card-title">Benjamin Adolphe</h4>
+                                        <p><img class="" src="img/photo-benjamin.png" alt="card image"></p><h4 class="card-title">Benjamin Adolphe</h4>
                                         <p class="card-text">Web developpeur-Stagiaire</p>
 
                                     </div>
@@ -416,7 +416,6 @@
                                     <div class="card-body text-center">
                                         <p><img class=" img-fluid" src="img/faces/Matt4.jpg" alt="card image"></p><h4 class="card-title">Matthias Berjola</h4>
                                         <p class="card-text">Web developpeur-Stagiaire</p>
-
                                     </div>
                                 </div>
                             </div>
