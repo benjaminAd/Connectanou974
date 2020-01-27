@@ -12,8 +12,6 @@
        {{csrf_field()}}
       <img class="img-fluid rounded-circle mx-auto d-block" src="./img/fav_png150vct.png" alt="Logo" />
       <p class="h4 mb-4 text-center">Inscrivez-vous en tant que Réalisateur de Projet</p>
-      @if ($errors->has('MailUsed')) <div class="alert alert-danger">{{ $errors->first('MailUsed') }}</div> @endif
-      @if ($errors->has('LoginUsed')) <div class="alert alert-danger">{{ $errors->first('LoginUsed') }}</div> @endif
       <div class="row">
         <div class="form-group col">
           <label for="nom">Nom<span id="important">*</span></label>
@@ -161,9 +159,9 @@
         {!! $errors->first('check', '<div class="invalid-feedback">:message</div>') !!}
       </div>
       <div class="form-group">
-        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+        <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
         @if ($errors->has('g-recaptcha-response'))
-              <div class="alert alert-danger">{{ $errors->first('g-recaptcha-response') }}</div>
+          <div class="invalid-feedback d-block">{{ $errors->first('g-recaptcha-response') }}</div>
         @endif
       </div>
       <!-- Sign in button -->
