@@ -11,7 +11,7 @@
                 <a href="{{url('/plan')}}">Plan du site</a>
               </li>
               <li>
-                <a href="{{{url('mentionLegal')}}}">Mentions légales</a>
+                <a href="{{ url('mentions-legales') }}">Mentions légales</a>
               </li>
               <li>
               <a target="_blank" href="https://www.linkedin.com/company/connectanou/"><i class="fa fa-linkedin" style="color:#4969b1;"></i></a>

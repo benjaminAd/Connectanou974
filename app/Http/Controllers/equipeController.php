@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class equipeController extends Controller
+class EquipeController extends Controller
 {
-    public function create()
+    public function index()
     {
         return view('Maquette Notre_equipe.section_equipe');
     }

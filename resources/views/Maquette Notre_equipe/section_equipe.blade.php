@@ -193,17 +193,16 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="favicon.ico" alt="card image"></p><h4 class="card-title">Gaëlle</h4>
-                                        <p class="card-text">Web-developpeuse/Web-designer</p>
-
+                                        <p><img class=" img-fluid" src="favicon.ico" alt="card image"></p><h4 class="card-title">Gaëlle Pierlot</h4>
+                                        <p class="card-text">Développeuse web</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="backside">
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
-                                        <h4 class="card-title">Sunlimetech</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                        <h4 class="card-title">Gaëlle Pierlot</h4>
+                                        <p class="card-text">Elle est passionnée par les nouvelles technologies, elle participe au projet Connectanou en tant que développeuse web.</p>
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <a class="social-icon text-xs-center" target="_blank" href="#">
