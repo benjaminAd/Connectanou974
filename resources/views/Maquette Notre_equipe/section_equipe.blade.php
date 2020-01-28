@@ -68,7 +68,7 @@
                             <div class="frontside">
                                 <div class="card ">
                                     <div class="card-body text-center">
-                                        <p><img src="img/Jenna_photo.jpg" ></p>
+                                        <p><img class="img-fluid" src="img/photo-jenna.png"></p>
                                         <h4 class="card-title">Jenna Pourchot</h4>
                                         <p class="card-text">Présidente de l'association</p>
 
@@ -193,17 +193,16 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="favicon.ico" alt="card image"></p><h4 class="card-title">Gaëlle</h4>
-                                        <p class="card-text">Web-developpeuse/Web-designer</p>
-
+                                        <p><img class=" img-fluid" src="favicon.ico" alt="card image"></p><h4 class="card-title">Gaëlle Pierlot</h4>
+                                        <p class="card-text">Développeuse web</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="backside">
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
-                                        <h4 class="card-title">Sunlimetech</h4>
-                                        <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                                        <h4 class="card-title">Gaëlle Pierlot</h4>
+                                        <p class="card-text">Elle est passionnée par les nouvelles technologies, elle participe au projet Connectanou en tant que développeuse web.</p>
                                         <ul class="list-inline">
                                             <li class="list-inline-item">
                                                 <a class="social-icon text-xs-center" target="_blank" href="#">
@@ -287,7 +286,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="img/Yann.jpg" alt="card image"></p><h4 class="card-title">Yann</h4>
+                                        <p><img class="img-fluid" src="img/Yann.jpg" alt="card image"></p><h4 class="card-title">Yann</h4>
                                         <p class="card-text">Web developpeur-Stagiaire</p>
 
                                     </div>
@@ -381,7 +380,7 @@
                             <div class="frontside">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <p><img class=" img-fluid" src="img/faces/Benjamin.jpg" alt="card image"></p><h4 class="card-title">Benjamin Adolphe</h4>
+                                        <p><img class="" src="img/photo-benjamin.png" alt="card image"></p><h4 class="card-title">Benjamin Adolphe</h4>
                                         <p class="card-text">Web developpeur-Stagiaire</p>
 
                                     </div>
@@ -416,7 +415,6 @@
                                     <div class="card-body text-center">
                                         <p><img class=" img-fluid" src="img/faces/Matt4.jpg" alt="card image"></p><h4 class="card-title">Matthias Berjola</h4>
                                         <p class="card-text">Web developpeur-Stagiaire</p>
-
                                     </div>
                                 </div>
                             </div>

@@ -60,12 +60,11 @@ class LoginController extends Controller
                 return redirect()->route('connect')->withErrors(['ErreurLogin' => 'Login ou mot de passe incorrecte']);
             }
         }
+    }
 
-       
-        
-
-       
-        
+    public function forgot_password()
+    {
+        return view('Maquette MdpForgot.mdpForgot');
     }
 
 }
