@@ -57,12 +57,15 @@
         @endif
         @if (Auth::guard('porteur')->check() ?? Auth::guard('real')->check())
         <div class="btn-group">
-          <a class="btn btn-primary " title="Se Connecter" href="{{ url('logout') }}" aria-haspopup="true"
-            aria-expanded="false" style="line-height:25px;">
+          <a class="btn btn-primary" href="{{ route('logout') }}" style="line-height:25px;" onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
             Déconnexion
           </a>
-        </div>
-        @endif
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+          </form>
+          @endif
       </ul>
     </div>
   </div>
