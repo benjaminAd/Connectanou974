@@ -23,12 +23,14 @@
             Recherche de projets
           </a>
         </li>
+        @if (Auth::guard('porteur')->check())
         <li class="nav-item">
           <a class="nav-link" title="Depot de projet" data-placement="bottom" href="{{ route('annonce.create') }}"
             style="color:#1E4F87;">
             Dépot de Projet
           </a>
         </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" title="Equipe" data-placement="bottom" href="{{ route('equipe') }}"
             style="color:#1E4F87;">
