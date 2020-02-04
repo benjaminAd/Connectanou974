@@ -14,7 +14,7 @@
 
 //use Illuminate\Routing\Route;
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
 // A propos de l'association Connectanou
 Route::get('a-propos', 'AboutController@index');
@@ -41,7 +41,7 @@ Route::get('/plan', 'SitemapController@index');
 // Connexion en Post et Get
 Route::get('login', 'LoginController@formulaire')->name('connect');
 Route::post('login', 'LoginController@traitement');
-
+Route::post('deconnexion', 'LoginController@logout')->name('logout');
 // Mot de passe oublié
 Route::get('forgot', 'LoginController@forgot_password');
 
