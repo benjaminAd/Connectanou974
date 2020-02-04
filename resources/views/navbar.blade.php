@@ -37,6 +37,7 @@
             Equipe
           </a>
         </li>
+        @if (!Auth::guard('porteur')->check() ?? !Auth::guard('real')->check())
         <div class="btn-group">
           <a class="btn btn-primary " title="Se Connecter" href="{{ url('login') }}" aria-haspopup="true"
             aria-expanded="false" style="line-height:25px;">
@@ -53,6 +54,15 @@
             <a class="dropdown-item" href="{{ route('SubscribeRea') }}">Réalisateur</a>
           </div>
         </div>
+        @endif
+        @if (Auth::guard('porteur')->check() ?? Auth::guard('real')->check())
+        <div class="btn-group">
+          <a class="btn btn-primary " title="Se Connecter" href="{{ url('logout') }}" aria-haspopup="true"
+            aria-expanded="false" style="line-height:25px;">
+            Déconnexion
+          </a>
+        </div>
+        @endif
       </ul>
     </div>
   </div>
