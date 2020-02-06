@@ -17,9 +17,9 @@ class CreateOrganisationsTable extends Migration
             $table->increments('Id');
             $table->double('SIRET')->nullable();
             $table->unique('SIRET', 'unique_SIRET');
-            $table->integer('IdCP')->nullable();
-            $table->integer('IdTypeOrga');
-            $table->integer('IdPorteur')->nullable();
+            $table->integer('IdCP')->unsigned();
+            $table->integer('IdTypeOrga')->unsigned();
+            $table->integer('IdPorteur')->unsigned();
             $table->string('RaisonSociale');
             $table->text('LogoUrl')->nullable();
             $table->text('Activite')->nullable();
@@ -27,9 +27,9 @@ class CreateOrganisationsTable extends Migration
             $table->integer('NbSalaries')->nullable();
             $table->text('SiteUrl')->nullable();
             $table->text('Adresse')->nullable();
-            $table->foreign('IdCP')->references('Id')->on('codePostal');
-            $table->foreign('IdTypeOrga')->references('Id')->on('typeOrganisation');
-            $table->foreign('IdPorteur')->references('Id')->on('porteurs');
+            $table->foreign('IdCP')->references('Id')->on('code_postaux');
+            $table->foreign('IdTypeOrga')->references('Id')->on('type_organisations');
+            // $table->foreign('IdPorteur')->references('Id')->on('porteurs');
             $table->timestamps();
         });
     }
