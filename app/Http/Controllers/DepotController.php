@@ -10,7 +10,7 @@ class DepotController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:porteur');
+       // $this->middleware('auth:porteur');
     }
     public function index()
     {
