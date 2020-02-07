@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormationsTable extends Migration
+class CreateForeignKey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateFormationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('formations', function (Blueprint $table) {
-            $table->increments('Id');
-            $table->string('Formations');
-            $table->timestamps();
+        Schema::table('organisations', function (Blueprint $table) {
+            $table->foreign('IdPorteur')->references('Id')->on('porteurs');
         });
     }
 
@@ -27,6 +25,6 @@ class CreateFormationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formations');
+        //
     }
 }

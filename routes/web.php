@@ -65,7 +65,7 @@ Route::get('contact', 'ContactController@create');
 Route::post('contact', 'ContactController@store');
 
 // Formulaire de dépôt de projet pour les porteurs de projets
-Route::get('annonce', 'DepotController@create')->name('annonce.create');
+Route::get('annonce', 'DepotController@create')->name('annonce.create')->middleware('auth:porteur');
 Route::post('annonce/create', 'DepotController@store')->name('annonce.store');
 
 // Différentes parties pour la recherche de projets
