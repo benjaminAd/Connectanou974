@@ -11,14 +11,13 @@ class TypeOrganisationTable extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('type_organisations')->insert([
-            'TypeOrganisation' => 'Entreprise'
-        ]);
-        \Illuminate\Support\Facades\DB::table('type_organisations')->insert([
-            'TypeOrganisation' => 'Association'
-        ]);
-        \Illuminate\Support\Facades\DB::table('type_organisations')->insert([
-            'TypeOrganisation' => 'Ecole'
-        ]);
+        $types = ['Entreprise', 'Association', 'Ecole'];
+
+        foreach ($types as $type) {
+            $organisation = new typeOrganisation([
+                'TypeOrganisation' => $type
+            ]);
+            $organisation->save();
+        }
     }
 }
