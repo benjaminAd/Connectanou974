@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\typeOrganisation;
 
-class TypeOrganisationTable extends Seeder
+class TypeOrganisationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
