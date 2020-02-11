@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\typeOrganisation;
 
 class TypeOrganisationTable extends Seeder
 {
@@ -12,12 +13,13 @@ class TypeOrganisationTable extends Seeder
     public function run()
     {
         $types = ['Entreprise', 'Association', 'Ecole'];
-
+        $id = 1;
         foreach ($types as $type) {
-            $organisation = new typeOrganisation([
+            $type_organisation = new typeOrganisation([
+                'Id' => $id++,
                 'TypeOrganisation' => $type
             ]);
-            $organisation->save();
+            $type_organisation->save();
         }
     }
 }
