@@ -13,8 +13,8 @@ class RealisateurProjetsSeeder extends Seeder
     public function run()
     {
         RealisateurProjets::create([
-            'Nom' => 'payet',
-            'Prenom' => 'jean',
+            'Nom' => 'PAYET',
+            'Prenom' => 'Jean',
             'Email' =>  'jean.payet@gmail.com',
             'Login' => 'Jp',
             'Mdp' => Hash::make('JeanPayet'),
