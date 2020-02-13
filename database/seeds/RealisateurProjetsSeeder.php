@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\realisateur_projets;
-class realisateur_projetsseed extends Seeder
+use App\RealisateurProjets;
+
+class RealisateurProjetsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +12,9 @@ class realisateur_projetsseed extends Seeder
      */
     public function run()
     {
-        realisateur_projets::create([
-            'Nom' => 'payet',
-            'Prenom' => 'jean',
+        RealisateurProjets::create([
+            'Nom' => 'PAYET',
+            'Prenom' => 'Jean',
             'Email' =>  'jean.payet@gmail.com',
             'Login' => 'Jp',
             'Mdp' => Hash::make('JeanPayet'),
@@ -27,8 +28,6 @@ class realisateur_projetsseed extends Seeder
             'IdOrga' => '1',
             'IdStatut' => '1',
             'IdDomaine' => '1',
-
-
         ]);
     }
 }
