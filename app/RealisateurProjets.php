@@ -3,10 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as BasicAuth;
 
-class realisateur_projets extends Model implements Authenticatable
+class RealisateurProjets extends Model
 {
     use BasicAuth;
 
