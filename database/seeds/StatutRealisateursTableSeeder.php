@@ -28,5 +28,4 @@ class StatutRealisateursTableSeeder extends Seeder
             ]);
         }
     }
-    }
 }

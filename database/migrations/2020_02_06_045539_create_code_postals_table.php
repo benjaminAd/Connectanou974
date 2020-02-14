@@ -13,7 +13,7 @@ class CreateCodePostalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('code_postaux', function (Blueprint $table) {
+        Schema::create('codes_postaux', function (Blueprint $table) {
             $table->increments('Id');
             $table->integer('CodePostal');
             $table->string('Ville');

@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class RealisateurProjets extends Model
 {
-    use BasicAuth;
-
     protected $guard = 'real';
     protected $fillable = ['Nom', 'Prenom', 'Email', 'Login', 'Mdp', 'DateNaissance', 'Telephone', 'DateNaissance', 'CVURL', 'LinkedinURL', 'IdOrga', 'NbProjets', 'NbPoints', 'IdNiveauEtudes', 'IdDiplomes', 'IdFormations', 'IdStatut', 'IdDomaine'];
     /**
