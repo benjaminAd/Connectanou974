@@ -12,9 +12,11 @@
     <link href="css/style_ourTeam.css" rel="stylesheet"/>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     @yield('link')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 @yield('body')
+
 <script src="js/core/jquery.min.js" type="text/javascript"></script>
 <script src="js/core/popper.min.js" type="text/javascript"></script>
 <script src="js/core/bootstrap.min.js" type="text/javascript"></script>
