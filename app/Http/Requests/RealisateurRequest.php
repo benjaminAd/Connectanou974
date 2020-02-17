@@ -29,7 +29,7 @@ class RealisateurRequest extends FormRequest
             'naissance' => 'nullable|date|before_or_equal:today',
             'telephone' => 'nullable|numeric',
             'statut' => 'required',
-            // 'ecole' => 'required',
+            'formation' => 'required',
             'domaine' => 'required',
             'NiveauEtude' => 'required',
             'Diplome' => 'nullable',
