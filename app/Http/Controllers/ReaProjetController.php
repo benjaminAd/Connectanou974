@@ -22,15 +22,13 @@ class ReaProjetController extends Controller
         $NiveauEtude = DB::table('niveau_etudes')->select('NiveauEtude', 'id')->get();
         $Ecoles = DB::table('organisations')->select('RaisonSociale', 'Id')->where('IdTypeOrga', 3)->get();
         $Domaines = DB::table('domaines')->select('Domaines', 'Id')->get();
-        $Formations = DB::table('formations')->select('Formations', 'Id')->get();
-        $Diplomes = DB::table('diplomes')->select('label', 'Id')->get();
+        // $Diplomes = DB::table('diplomes')->select('label', 'Id')->get();
         return view('Maquette InscriptionReaProjet.SubscribeReaProjet', [
             'NiveauxEtude' => $NiveauEtude,
             'Ecoles' => $Ecoles,
             'Statuts' => $Statuts,
             'Domaines' => $Domaines,
-            'Formations' => $Formations,
-            'Diplomes' => $Diplomes
+            // 'Diplomes' => $Diplomes
         ]);
     }
 
@@ -116,6 +114,7 @@ class ReaProjetController extends Controller
             'Login' => $request->get('login'),
             'Mdp' => Hash::make($mdp),
             'Telephone' => $request->get('telephone'),
+            'formation' => $request->get('formation'),
             'DateNaissance' => $request->get("naissance"),
             'CVURL' => null,
             'IdOrga' => $ecole,
@@ -124,7 +123,6 @@ class ReaProjetController extends Controller
             'NbPoints' => 0,
             'IdNiveauEtudes' => $request->get('NiveauEtude'),
             'IdDiplomes' => $diplome,
-            'IdFormations' => $formations,
             'IdStatut' => $request->get('statut'),
             'IdDomaine' => $request->get('domaine')
         ]);

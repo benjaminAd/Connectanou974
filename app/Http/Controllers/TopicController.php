@@ -19,7 +19,7 @@ class TopicController extends Controller
     {
         // On implémente un middleware d'authentification
         // On est obligé d'être authentifié pour accéder aux méthodes sauf pour index et show
-        $this->middleware('auth')->except(['index', 'show']);
+        //$this->middleware('auth')->except(['index', 'show']);
     }
 
 
