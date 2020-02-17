@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Organisations;
 
 class OrganisationSeeder extends Seeder
 {
@@ -11,11 +12,9 @@ class OrganisationSeeder extends Seeder
      */
     public function run()
     {
-        $organisation = Organisations::create([
+        Organisations::create([
             'IdTypeOrga' => 1,
             'RaisonSociale' => 'Connectanou',
-            'IdTypeOrga' => 2
         ]);
-        $organisation->save();
     }
 }

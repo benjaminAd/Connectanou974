@@ -11,7 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Eloquent::unguard();
-        $this->call('realisateur_projetsseed');
+        $this->call(CodePostalSeeder::class);
+        $this->call(TypeOrganisationSeeder::class);
+        $this->call(OrganisationSeeder::class);
+        $this->call(DomainesTableSeeder::class);
+        $this->call(NiveauEtudeTableSeeder::class);
+        $this->call(StatutRealisateursTableSeeder::class);
+        $this->call(RealisateurProjetsSeeder::class);
     }
 }
