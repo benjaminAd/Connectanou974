@@ -48,7 +48,7 @@
 
       <div id="ecole" class="form-group">
         <label>École<span id="important">*</span></label>
-        <select name="ecole" class="custom-select {{ $errors->has('ecole') ? 'is-invalid' : '' }}" id="ecole">
+        <select name="ecole" class="custom-select {{ $errors->has('ecole') ? 'is-invalid' : '' }}">
           <option value="">Ecoles</option>
           @foreach ($Ecoles as $Ecole)
             <option value="{{ $Ecole->Id }}">{{ $Ecole->RaisonSociale }}</option>
@@ -60,19 +60,9 @@
         <label>Nom de votre école<span id="important">*</span></label>
         <input type="text" class="form-control" placeholder="ex : Université de La Réunion" value="{{ old("ecoleNom") }}" name="EcoleNom" id="EcoleNom"/>
       </div>
-       <div class="form-group" id="Formations">
+       <div class="form-group" id="formations">
         <label>Formation en cours<span id="important">*</span></label>
-        <select name="Formation" id="Formation" class="custom-select">
-          <option value="" selected>Formation<span id="important">*</span></option>
-          @foreach ($Formations as $Formation)
-            <option value="{{ $Formation->Id }}">{{ $Formation->Formations }}</option>
-          @endforeach
-          <option value="Autre">Autre</option>
-        </select>
-      </div>
-      <div class="form-group" id="FormationAjout">
-        <label>Nom de votre Formation</label>
-        <input type="text" class="form-control" placeholder="ex : Licence Informatique" value="{{ old("NomFormation") }}" name="NomFormation">
+        <input type="text" class="form-control" placeholder="ex : Licence en informatique" value="{{ old("formation") }}" name="formation"/>
       </div>
       <div class="form-group">
         <label for="domaine">Domaine<span id="important">*</span></label>
@@ -94,7 +84,7 @@
         </select>
         {!! $errors->first('NiveauEtude', '<div class="invalid-feedback">:message</div>') !!}
       </div>
-      <div class="form-group" id="Formations">
+      <div class="form-group">
         <div class="form-group">        
           <label for="Diplome">Diplôme</label>
           <input type="text" name="Diplome" class="form-control {{ $errors->has('Diplome') ? 'is-invalid' : '' }}" id="diplome" value="{{ old("Diplome") }}" placeholder="ex : Licence informatique" />
